@@ -18,6 +18,59 @@ public class Order {
     private String mobilenumber;
     private String username;
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public int getStatusid() {
+        return statusid;
+    }
+
+    public void setStatusid(int statusid) {
+        this.statusid = statusid;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getMobilenumber() {
+        return mobilenumber;
+    }
+
+    public void setMobilenumber(String mobilenumber) {
+        this.mobilenumber = mobilenumber;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
