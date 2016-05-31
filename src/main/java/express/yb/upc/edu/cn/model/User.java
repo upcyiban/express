@@ -14,13 +14,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
 
+    private int yibanid;
     private String name;
-    private String telephone;
     private String address;
+
 
     public User(String name, String telephone, String address) {
         this.name = name;
-        this.telephone = telephone;
         this.address = address;
     }
     public User(){}
@@ -33,9 +33,6 @@ public class User {
         return name;
     }
 
-    public String getTelephone() {
-        return telephone;
-    }
 
     public String getAddress() {
         return address;
@@ -49,11 +46,15 @@ public class User {
         this.name = name;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getYibanid() {
+        return yibanid;
+    }
+
+    public void setYibanid(int yibanid) {
+        this.yibanid = yibanid;
     }
 }

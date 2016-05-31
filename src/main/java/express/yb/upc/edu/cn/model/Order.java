@@ -11,12 +11,14 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int statusid;
+
+    private int userid;
     private String number;
     private String company;
     private String details;
     private String mobilenumber;
     private String username;
+
 
     public int getId() {
         return id;
@@ -26,12 +28,12 @@ public class Order {
         this.id = id;
     }
 
-    public int getStatusid() {
-        return statusid;
+    public int getUserid() {
+        return userid;
     }
 
-    public void setStatusid(int statusid) {
-        this.statusid = statusid;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
 
     public String getNumber() {
