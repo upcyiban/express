@@ -6,8 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * Created by wh980 on 2016/5/30.
  */
-public class OrderDao {
-    public interface CompetitionDao extends CrudRepository<Order,Integer> {
-        public Iterable<Order> findAll(Sort sort);
-    }
+public interface OrderDao extends CrudRepository<Order,Integer>
+{
+    public Iterable<Order> findAll(Sort sort);
+
 }

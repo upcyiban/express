@@ -14,6 +14,15 @@ public class Order {
 
     private int userid;
     private String number;
+
+    public Order(String number, String company, String details, String mobilenumber, String username) {
+        this.number = number;
+        this.company = company;
+        this.details = details;
+        this.mobilenumber = mobilenumber;
+        this.username = username;
+    }
+
     private String company;
     private String details;
     private String mobilenumber;
