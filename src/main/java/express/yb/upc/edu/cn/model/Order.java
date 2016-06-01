@@ -12,17 +12,23 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private int userid;
+    private int userid=id;
     private String number;
 
-    public Order(String number, String company, String details, String mobilenumber, String username) {
+
+    public Order(int userid, String number, String company, String details, String mobilenumber, String username, String creattime) {
+        this.userid = userid;
         this.number = number;
         this.company = company;
         this.details = details;
         this.mobilenumber = mobilenumber;
         this.username = username;
+        this.creattime = creattime;
     }
 
+    public Order(){
+        userid=123;
+    };
     private String company;
     private String details;
     private String mobilenumber;
