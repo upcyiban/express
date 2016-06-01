@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * Created by wh980 on 2016/5/30.
  */
-@Table (name="Order")
+@Table(name = "Order")
 @Entity
 public class Order {
     @Id
@@ -18,7 +18,7 @@ public class Order {
     private String details;
     private String mobilenumber;
     private String username;
-
+    private String creattime;
 
     public int getId() {
         return id;
@@ -74,5 +74,13 @@ public class Order {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getCreattime() {
+        return creattime;
+    }
+
+    public void setCreattime(String creattime) {
+        this.creattime = creattime;
     }
 }
