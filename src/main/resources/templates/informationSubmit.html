@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>易快递信息输入</title>
 </head>
 <body>
-
+<form action="/submit" method="post">
+    收货人姓名：<input type="text" name="username"/><br>
+    收货人手机号：<input type="text" name="moblienumber"><br>
+    收货地址：<input type="text" name="address"><br>
+    快递公司：<input type="text" name="company"><br>
+    快递取件编号:<input type="text" name="number"><br>
+    <button>确定</button>
+</form>
 </body>
 </html>

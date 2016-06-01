@@ -1,7 +1,9 @@
 package express.yb.upc.edu.cn.model;
 
 import javax.persistence.*;
-
+import java.util.Date;
+import java.util.Date;
+import java.util.Calendar;
 /**
  * Created by wh980 on 2016/5/30.
  */
@@ -12,7 +14,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private int userid;
+    private String userid;
     private String number;
 
     public Order(String number, String company, String details, String mobilenumber, String username) {
@@ -37,11 +39,11 @@ public class Order {
         this.id = id;
     }
 
-    public int getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(String userid) {
         this.userid = userid;
     }
 
@@ -86,7 +88,7 @@ public class Order {
     }
 
     public String getCreattime() {
-        return creattime;
+       return creattime;
     }
 
     public void setCreattime(String creattime) {
