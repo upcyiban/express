@@ -24,8 +24,8 @@ public class SubmitController {
     {
         return "informationsubmit";
     }
-    @RequestMapping (value = "/submit", method = RequestMethod.POST)
-    public String submitDate(String username,String number,String company,String moblienumber,String details){
+     @RequestMapping (value = "/submit", method = RequestMethod.POST)
+  public String submitDate(String username,String number,String company,String moblienumber,String details){
         Order order=new Order(username,number,company,details,moblienumber);
        String s= "123";
         String d="1456";

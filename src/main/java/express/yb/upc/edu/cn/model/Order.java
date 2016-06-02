@@ -14,11 +14,15 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private String userid;
+    private int userid;
     private String number;
+    private String company;
+    private String details;
+    private String mobilenumber;
+    private String username;
+    private String creattime;
 
-
-    public Order(String userid, String number, String company, String details, String mobilenumber, String username, String creattime) {
+    public Order(int userid, String number, String company, String details, String mobilenumber, String username, String creattime) {
         this.userid = userid;
         this.number = number;
         this.company = company;
@@ -28,15 +32,6 @@ public class Order {
         this.creattime = creattime;
     }
 
-    public Order(){
-        userid="123";
-    };
-    private String company;
-    private String details;
-    private String mobilenumber;
-    private String username;
-    private String creattime;
-
     public int getId() {
         return id;
     }
@@ -45,11 +40,11 @@ public class Order {
         this.id = id;
     }
 
-    public String getUserid() {
+    public int getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
+    public void setUserid(int userid) {
         this.userid = userid;
     }
 
@@ -94,10 +89,12 @@ public class Order {
     }
 
     public String getCreattime() {
-       return creattime;
+        return creattime;
     }
 
     public void setCreattime(String creattime) {
         this.creattime = creattime;
     }
+
+    public Order(){}
 }
