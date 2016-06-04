@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>易快递</title>
+
+</head>
+<body>
+<ul th:each="Order:${orders}">
+<li>
+    <!--<span th:int="${Order.userid}"></span>-->
+    <span th:text="${Order.number}"></span>
+    <span th:text="${Order.company}"></span>
+    <span th:text="${Order.details}"></span>
+    <span th:text="${Order.mobilenumber}"></span>
+    <span th:text="${Order.username}"></span>
+    <span th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}"></span>
+</li>
+</ul>
+
+
+</body>
+</html>
