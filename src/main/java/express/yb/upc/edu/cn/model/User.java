@@ -1,14 +1,12 @@
 package express.yb.upc.edu.cn.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by lenovo on 2016/5/31.
  */
 @Entity
+@Table (name = "express_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

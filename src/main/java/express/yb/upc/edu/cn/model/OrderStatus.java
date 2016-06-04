@@ -5,8 +5,9 @@ import javax.persistence.*;
 /**
  * Created by wanghaojun on 2016/5/31.
  */
-@Table(name = "OrderStatus")
+
 @Entity
+@Table(name = "express_orderstatus")
 public class OrderStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

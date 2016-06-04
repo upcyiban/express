@@ -9,6 +9,7 @@ import java.util.Calendar;
  */
 
 @Entity
+@Table (name = "express_order")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
