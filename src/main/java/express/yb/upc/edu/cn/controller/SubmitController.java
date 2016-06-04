@@ -25,13 +25,10 @@ public class SubmitController {
         return "informationsubmit";
     }
      @RequestMapping (value = "/submit", method = RequestMethod.POST)
-  public String submitDate(String username,String number,String company,String moblienumber,String details){
-        Order order=new Order(username,number,company,details,moblienumber);
-       String s= "123";
-        String d="1456";
-
-        order.setCreattime(d);
-        order.setUserid(s);
+  public String submitDate(String username,String number,String company,String mobilenumber,String details){
+        String creattime=new Date().toString();
+         int userid=0;
+        Order order=new Order(userid, number,company, details, mobilenumber, username, creattime);
         orderDao.save(order);
         return "submitsuccess";
     }

@@ -7,7 +7,7 @@ import java.util.Calendar;
 /**
  * Created by wh980 on 2016/5/30.
  */
-@Table(name = "Order")
+
 @Entity
 public class Order {
     @Id
