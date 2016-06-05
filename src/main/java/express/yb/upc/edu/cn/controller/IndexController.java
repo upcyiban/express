@@ -32,33 +32,36 @@ public class IndexController {
    @Autowired
    private HttpSession httpSession;
 
-    @RequestMapping("/")
-    public String ShowIndex() {
-
-        if (!loginService.isLogin()) {
-            return loginService.toYibanAuth();
-        }
-        return "index";
-    }
-
-//    @RequestMapping("/")
-//    public String ShowIndex(String yibanid, String orderid,String number,String company,String detail,String mobilenumber,String username,String creattime, Model model) {
+   //@RequestMapping("/")
+//    public String ShowIndex() {
+//        System.out.println("1");
 //
 //        if (!loginService.isLogin()) {
 //            return loginService.toYibanAuth();
 //        }
-//        String userid=  httpSession.getAttribute("userid").toString();
-//        yibanid=userid;
-//
-//        Order order = new Order(yibanid,number,company,detail,mobilenumber,username,creattime);
-//        orderid=order.getNumber();
-//        Iterable<Order> lists = orderDao.findByYibanid(yibanid);
-//       Iterable<OrderStatus> orderlist = orderStatusDao.findByOrderid(orderid);
-//
-//        model.addAttribute("lists", lists);
-//        model.addAttribute("orderlist", orderlist);
+//        System.out.println(2);
 //        return "index";
 //    }
+
+    @RequestMapping("/")
+    public String ShowIndex(String yibanid, String orderid,String number,String company,String detail,String mobilenumber,String username,String creattime, Model model) {
+
+        if (!loginService.isLogin()) {
+            return loginService.toYibanAuth();
+        }
+        String userid=  httpSession.getAttribute("userid").toString();
+        yibanid=userid;
+
+        Order order = new Order(yibanid,number,company,detail,mobilenumber,username,creattime);
+
+        yibanid="1";
+        Iterable<Order> lists = orderDao.findByYibanid(yibanid);
+       Iterable<OrderStatus> orderlist = orderStatusDao.findByOrderid(orderid);
+
+        model.addAttribute("lists", lists);
+        model.addAttribute("orderlist", orderlist);
+        return "index";
+    }
 
     public String TestId(String yibanid, Model model) {
 

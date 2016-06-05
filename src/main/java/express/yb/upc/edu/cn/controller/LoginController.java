@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 /**
  * Created by lenovo on 2016/6/5.
  */
+@Controller
 public class LoginController {
     @Autowired
     private LoginService loginService;
