@@ -4,11 +4,13 @@ import express.yb.upc.edu.cn.model.Order;
 import express.yb.upc.edu.cn.model.OrderDao;
 import express.yb.upc.edu.cn.model.OrderStatus;
 import express.yb.upc.edu.cn.model.OrderStatusDao;
+import express.yb.upc.edu.cn.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collection;
 
 
@@ -24,25 +26,48 @@ public class IndexController {
     @Autowired
     private OrderStatusDao orderStatusDao;
 
+    @Autowired
+    private LoginService loginService;
+
+   @Autowired
+   private HttpSession httpSession;
+
     @RequestMapping("/")
-    public String ShowIndex(int userid,int orderid,Model model) {
+    public String ShowIndex() {
 
-        Iterable<Order> lists = orderDao.findByUserid(userid);
-        Iterable<OrderStatus> orderlist = orderStatusDao.findByOrderid(orderid);
-
-        model.addAttribute("lists",lists);
-        model.addAttribute("orderlist",orderlist);
+        if (!loginService.isLogin()) {
+            return loginService.toYibanAuth();
+        }
         return "index";
     }
 
-    public String TestId(int userid, Model model) {
+//    @RequestMapping("/")
+//    public String ShowIndex(String yibanid, String orderid,String number,String company,String detail,String mobilenumber,String username,String creattime, Model model) {
+//
+//        if (!loginService.isLogin()) {
+//            return loginService.toYibanAuth();
+//        }
+//        String userid=  httpSession.getAttribute("userid").toString();
+//        yibanid=userid;
+//
+//        Order order = new Order(yibanid,number,company,detail,mobilenumber,username,creattime);
+//        orderid=order.getNumber();
+//        Iterable<Order> lists = orderDao.findByYibanid(yibanid);
+//       Iterable<OrderStatus> orderlist = orderStatusDao.findByOrderid(orderid);
+//
+//        model.addAttribute("lists", lists);
+//        model.addAttribute("orderlist", orderlist);
+//        return "index";
+//    }
 
-        Collection<Order> orders = (Collection<Order>) orderDao.findByUserid(userid);
+    public String TestId(String yibanid, Model model) {
+
+        Collection<Order> orders = (Collection<Order>) orderDao.findByYibanid(yibanid);
         if (orders.isEmpty()) {
             model.addAttribute("result", "请先登录");
         } else {
             model.addAttribute("result", "登录成功");
         }
-   return "index";
+        return "index";
     }
 }

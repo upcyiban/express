@@ -27,8 +27,8 @@ public class SubmitController {
      @RequestMapping (value = "/submit", method = RequestMethod.POST)
   public String submitDate(String username,String number,String company,String mobilenumber,String details){
         String creattime=new Date().toString();
-         int userid=0;
-        Order order=new Order(userid, number,company, details, mobilenumber, username, creattime);
+         String yiban="0";
+        Order order=new Order(yiban, number,company, details, mobilenumber, username, creattime);
         orderDao.save(order);
         return "submitsuccess";
     }
