@@ -13,17 +13,13 @@ public class OrderStatus {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-<<<<<<< HEAD
-    private int orderid;
-    private boolean uesrvalue=false;//用户确认订单
-    private boolean couriervalue=false;//接单员最终确认
-    private  boolean ordervalue=false; //确认接单
-=======
+
+
     private String orderid;
     private boolean uesrvalue = false;//用户确认订单
     private boolean couriervalue = false;//接单员最终确认
     private  boolean ordervalue = false;//确认接单
->>>>>>> 726563f7b3cba91374de785bf61f339b8ba70600
+
 
     public OrderStatus(String orderid, boolean uesrvalue, boolean couriervalue, boolean ordervalue) {
         this.orderid = orderid;
@@ -36,10 +32,6 @@ public class OrderStatus {
         return id;
     }
 
-    public OrderStatus(int orderid) {
-        this.orderid = orderid;
-
-    }
 
     public void setId(int id) {
         this.id = id;
