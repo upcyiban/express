@@ -14,12 +14,17 @@ public class OrderStatus {
     private int id;
 
     private int orderid;
-    private boolean uesrvalue = false;//用户确认订单
-    private boolean couriervalue = false;//接单员最终确认
-    private  boolean ordervalue = false;//确认接单
+    private boolean uesrvalue=false;//用户确认订单
+    private boolean couriervalue=false;//接单员最终确认
+    private  boolean ordervalue=false; //确认接单
 
     public int getId() {
         return id;
+    }
+
+    public OrderStatus(int orderid) {
+        this.orderid = orderid;
+
     }
 
     public void setId(int id) {

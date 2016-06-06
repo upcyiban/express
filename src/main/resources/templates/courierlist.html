@@ -6,18 +6,46 @@
 
 </head>
 <body>
-<ul th:each="Order:${orders}">
-<li>
+<!--<ul th:each="Order:${orders}">-->
+<!--<li>-->
     <!--<span th:int="${Order.userid}"></span>-->
-    <span th:text="${Order.number}"></span>
-    <span th:text="${Order.company}"></span>
-    <span th:text="${Order.details}"></span>
-    <span th:text="${Order.mobilenumber}"></span>
-    <span th:text="${Order.username}"></span>
-    <span th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}"></span>
-</li>
-</ul>
+    <!--<span th:text="${Order.number}"></span>-->
+    <!--<span th:text="${Order.company}"></span>-->
+    <!--<span th:text="${Order.details}"></span>-->
+    <!--<span th:text="${Order.mobilenumber}"></span>-->
+    <!--<span th:text="${Order.username}"></span>-->
+    <!--<span th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}"></span>-->
+<!--</li>-->
+<!--</ul>-->
+<table th:each="Order:${orders}" border="10px  black" >
 
+    <tr>
+        <th>userid</th>
+        <th>number</th>
+        <th>company</th>
+        <th>details</th>
+        <th>mobilenumber</th>
+        <th>username</th>
+        <th>creattime</th>
+        <th>orderid</th>
+        <th>uesrvalue</th>
+        <th>couriervalue</th>
+        <th>ordervalue</th>
+    </tr>
+
+    <tr>
+        <!--<td th:text="${Order.userid}"></td>-->
+        <td th:text="${Order.number}"></td>
+        <td th:text="${Order.company}"></td>
+        <td th:text="${Order.details}"></td>
+        <td th:text="${Order.mobilenumber}"></td>
+        <td th:text="${Order.username}"></td>
+        <td th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}"></td>
+        <td th:text="${orderstatuses.orderid}"></td>
+        <td th:text="${orderstatuses.uesrvalue}"></td>
+        <td th:text="${orderstatuses.ordervalue}"></td>
+    </tr>
+</table>
 
 </body>
 </html>

@@ -2,12 +2,13 @@ package express.yb.upc.edu.cn.controller;
 
 import express.yb.upc.edu.cn.model.Order;
 import express.yb.upc.edu.cn.model.OrderDao;
+import express.yb.upc.edu.cn.model.OrderStatus;
+import express.yb.upc.edu.cn.model.OrderStatusDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 
 
 /**
@@ -17,6 +18,8 @@ import java.text.SimpleDateFormat;
 public class SubmitController {
     @Autowired
     private OrderDao orderDao;
+    private OrderStatusDao orderStatusDao;
+
 
 
     @RequestMapping("/informationsubmit")
@@ -30,6 +33,9 @@ public class SubmitController {
          int userid=0;
         Order order=new Order(userid, number,company, details, mobilenumber, username, creattime);
         orderDao.save(order);
+        int statusid=order.getId();
+         OrderStatus orderStatus=new OrderStatus(statusid);
+         orderStatusDao.save(orderStatus);
         return "submitsuccess";
     }
 
