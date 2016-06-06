@@ -10,5 +10,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface OrderStatusDao extends CrudRepository<OrderStatus,Integer>{
 
         public Iterable<OrderStatus> findAll(Sort sort);
-        public Iterable<OrderStatus> findByOrderid(Integer orderid);
+        public Iterable<OrderStatus> findByOrderid(String orderid);
 }

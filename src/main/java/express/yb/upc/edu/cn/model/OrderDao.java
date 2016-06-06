@@ -10,6 +10,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface OrderDao extends CrudRepository<Order,Integer>
 {
     public Iterable<Order> findAll(Sort sort);
-    public Iterable<Order> findByUserid(int userid);
+    public Iterable<Order> findByYibanid(String yibanid);
 
 }

@@ -30,8 +30,8 @@ public class SubmitController {
      @RequestMapping (value = "/submit", method = RequestMethod.POST)
   public String submitDate(String username,String number,String company,String mobilenumber,String details){
         String creattime=new Date().toString();
-         int userid=0;
-        Order order=new Order(userid, number,company, details, mobilenumber, username, creattime);
+         String yibanid="1";
+        Order order=new Order(yibanid, number,company, details, mobilenumber, username, creattime);
         orderDao.save(order);
         int statusid=order.getId();
          OrderStatus orderStatus=new OrderStatus(statusid);

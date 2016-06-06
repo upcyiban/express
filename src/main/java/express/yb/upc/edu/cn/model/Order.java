@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Date;
 import java.util.Calendar;
+import java.util.Collection;
 /**
  * Created by wh980 on 2016/5/30.
  */
@@ -15,7 +16,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private int userid;
+    private String yibanid;
     private String number;
     private String company;
     private String details;
@@ -23,8 +24,8 @@ public class Order {
     private String username;
     private String creattime;
 
-    public Order(int userid, String number, String company, String details, String mobilenumber, String username, String creattime) {
-        this.userid = userid;
+    public Order(String yibanid, String number, String company, String details, String mobilenumber, String username, String creattime) {
+        this.yibanid = yibanid;
         this.number = number;
         this.company = company;
         this.details = details;
@@ -32,6 +33,7 @@ public class Order {
         this.username = username;
         this.creattime = creattime;
     }
+    public Order(){}
 
     public int getId() {
         return id;
@@ -41,12 +43,12 @@ public class Order {
         this.id = id;
     }
 
-    public int getUserid() {
-        return userid;
+    public String getYibanid() {
+        return yibanid;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setYibanid(String yibanid) {
+        this.yibanid = yibanid;
     }
 
     public String getNumber() {
@@ -96,6 +98,4 @@ public class Order {
     public void setCreattime(String creattime) {
         this.creattime = creattime;
     }
-
-    public Order(){}
 }
