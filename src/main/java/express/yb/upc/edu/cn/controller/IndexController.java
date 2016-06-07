@@ -24,14 +24,13 @@ public class IndexController {
     private OrderDao orderDao;
 
 
-
     @Autowired
     private LoginService loginService;
 
-   @Autowired
-   private HttpSession httpSession;
+    @Autowired
+    private HttpSession httpSession;
 
-   //@RequestMapping("/")
+    //@RequestMapping("/")
 //    public String ShowIndex() {
 //        System.out.println("1");
 //
@@ -43,17 +42,15 @@ public class IndexController {
 //    }
 
     @RequestMapping("/")
-    public String ShowIndex(String yibanid, String orderid,String number,String company,String detail,String mobilenumber,String username,String creattime, Model model) {
-
+    public String ShowIndex(Model model) {
         if (!loginService.isLogin()) {
             return loginService.toYibanAuth();
         }
-        String userid=  httpSession.getAttribute("userid").toString();
-        yibanid=userid;
-
-        Order order = new Order(yibanid,number,company,detail,mobilenumber,username,creattime);
-
+        String userid = httpSession.getAttribute("userid").toString();
+        String yibanid = userid;
         yibanid="1";
+
+
         Iterable<Order> lists = orderDao.findByYibanid(yibanid);
 
 
@@ -72,19 +69,18 @@ public class IndexController {
         }
         return "index";
     }
+
     //用户确认收到
     @RequestMapping("/changeuservalue")
-    public String changeUserValue(int id){
-        Order order=orderDao.findOne(id);
-        if (Objects.equals(order.getUservalue() ,"未确认"))
-        {
+    public String changeUserValue(int id) {
+        Order order = orderDao.findOne(id);
+        if (Objects.equals(order.getUservalue(), "未确认")) {
             order.setUservalue("已确认");
-        }
-        else{
+        } else {
             order.setUservalue("未确认");
         }
         orderDao.save(order);
-        return "/";
+        return "redirect:/";
 
     }
 }

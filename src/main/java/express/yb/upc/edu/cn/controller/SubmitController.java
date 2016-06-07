@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -20,7 +21,8 @@ import java.util.TimeZone;
 public class SubmitController {
     @Autowired
     private OrderDao orderDao;
-
+    @Autowired
+    private HttpSession httpSession;
 
     @RequestMapping("/informationsubmit")
     public String showSubmit() {
@@ -31,9 +33,11 @@ public class SubmitController {
     public String submitDate(String username, String number, String company, String mobilenumber, String details) {
 
 
+        String yibanid = "1";
+
         String creattime = new Date().toString();
 
-        String yibanid = "1";
+
         Order order = new Order(creattime, username, mobilenumber, details, company, number, yibanid);
         orderDao.save(order);
         return "submitsuccess";
