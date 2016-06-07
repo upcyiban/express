@@ -25,9 +25,9 @@ public class Order {
     private String username;
 
     private String creattime;
-    private boolean uesrvalue = false;//用户确认订单
-    private boolean couriervalue = false;//接单员最终确认
-    private boolean ordervalue = false;//确认接单
+    private String uesrvalue = "未确认";//用户确认订单
+    private String couriervalue ="未确认";//接单员最终确认
+    private String ordervalue ="未确认";//确认接单
 
     public Order() {}
     public Order(String creattime, String username, String mobilenumber, String details, String company, String number, String yibanid) {
@@ -40,11 +40,7 @@ public class Order {
         this.yibanid = yibanid;
     }
 
-    public Order(boolean ordervalue, boolean couriervalue, boolean uesrvalue) {
-        this.ordervalue = ordervalue;
-        this.couriervalue = couriervalue;
-        this.uesrvalue = uesrvalue;
-    }
+
 
 
     public int getId() {
@@ -79,15 +75,15 @@ public class Order {
         return creattime;
     }
 
-    public boolean isUesrvalue() {
+    public String getUesrvalue() {
         return uesrvalue;
     }
 
-    public boolean isCouriervalue() {
+    public String getCouriervalue() {
         return couriervalue;
     }
 
-    public boolean isOrdervalue() {
+    public String getOrdervalue() {
         return ordervalue;
     }
 
@@ -123,15 +119,15 @@ public class Order {
         this.creattime = creattime;
     }
 
-    public void setUesrvalue(boolean uesrvalue) {
+    public void setUesrvalue(String uesrvalue) {
         this.uesrvalue = uesrvalue;
     }
 
-    public void setCouriervalue(boolean couriervalue) {
+    public void setCouriervalue(String couriervalue) {
         this.couriervalue = couriervalue;
     }
 
-    public void setOrdervalue(boolean ordervalue) {
+    public void setOrdervalue(String ordervalue) {
         this.ordervalue = ordervalue;
     }
 }

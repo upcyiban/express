@@ -62,10 +62,10 @@
         <td th:text="${Order.mobilenumber}"></td>
         <td th:text="${Order.username}"></td>
         <td th:text="${Order.creattime}"></td>
-        <td th:text="${Order.yibanid}"></td>
-        <td th:text="${Order.uesrvalue}"></td>
-        <td th:text="${Order.couriervalue}"></td>
-        <td th:text="${Order.ordervalue}"></td>
+        <td th:text="${Order.yibanid}"> </td>
+        <td ><a th:text="${Order.uesrvalue}"th:href="@{/changeuservalue(id=${Order.id})}" ></a></td>
+        <td ><a th:text="${Order.couriervalue}" th:href="@{/changecouriervalue(id=${Order.id})}"></a></td>
+        <td><a  th:text="${Order.ordervalue}" th:href="@{/changeordervalue(id=${Order.id})}"></a></td>
     </tr>
 </table>
 
