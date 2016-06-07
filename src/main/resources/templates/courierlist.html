@@ -7,19 +7,14 @@
 </head>
 <body>
 <!--<ul th:each="Order:${orders}">-->
-    <!--<li>-->
-    <!--userid<span th:int="${Order.yibanid}"></span>-->
-    <!--number <span th:text="${Order.number}"></span>-->
-        <!--company<span th:text="${Order.company}"></span>-->
-        <!--details<span th:text="${Order.details}"></span>-->
-    <!--mobilenumber<span th:text="${Order.mobilenumber}"></span><br>-->
-   <!--username<span th:text="${Order.username}"></span>-->
-    <!--creattime<span th:text="${Order.creattime}"></span>-->
-
-
-
-
-
+<!--<li>-->
+<!--userid<span th:int="${Order.yibanid}"></span>-->
+<!--number <span th:text="${Order.number}"></span>-->
+<!--company<span th:text="${Order.company}"></span>-->
+<!--details<span th:text="${Order.details}"></span>-->
+<!--mobilenumber<span th:text="${Order.mobilenumber}"></span><br>-->
+<!--username<span th:text="${Order.username}"></span>-->
+<!--creattime<span th:text="${Order.creattime}"></span>-->
 
 
 <!--</li>-->
@@ -29,16 +24,16 @@
 <!--<ul >-->
 
 <!--<li>-->
-    <!--userid-->
-    <!--number-->
-    <!--company-->
-    <!--details-->
-    <!--mobilenumber-->
-    <!--username-->
-    <!--creattime-->
+<!--userid-->
+<!--number-->
+<!--company-->
+<!--details-->
+<!--mobilenumber-->
+<!--username-->
+<!--creattime-->
 <!--</li>-->
 <!--</ul>-->
-<table th:each="Order:${orders}"  >
+<table th:each="Order:${orders}">
 
     <tr>
         <th>userid</th>
@@ -49,23 +44,24 @@
         <th>username</th>
         <th>creattime</th>
         <th>orderid</th>
-        <th>uesrvalue</th>
         <th>couriervalue</th>
+        <th>uesrvalue</th>
         <th>ordervalue</th>
     </tr>
 
     <tr>
-         <td th:text="${Order.id}"></td>
+        <td th:text="${Order.id}"></td>
         <td th:text="${Order.number}"></td>
         <td th:text="${Order.company}"></td>
         <td th:text="${Order.details}"></td>
         <td th:text="${Order.mobilenumber}"></td>
         <td th:text="${Order.username}"></td>
-        <td th:text="${Order.creattime}"></td>
-        <td th:text="${Order.yibanid}"> </td>
-        <td ><a th:text="${Order.uesrvalue}"th:href="@{/changeuservalue(id=${Order.id})}" ></a></td>
-        <td ><a th:text="${Order.couriervalue}" th:href="@{/changecouriervalue(id=${Order.id})}"></a></td>
-        <td><a  th:text="${Order.ordervalue}" th:href="@{/changeordervalue(id=${Order.id})}"></a></td>
+        <td><span th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}"></span></td>
+        <td th:text="${Order.yibanid}"></td>
+
+        <td><a th:text="${Order.couriervalue}" th:href="@{/changecouriervalue(id=${Order.id})}"></a></td>
+        <td><span th:text="${Order.uservalue}"></span></td>
+        <td><a th:text="${Order.ordervalue}" th:href="@{/changeordervalue(id=${Order.id})}"></a></td>
     </tr>
 </table>
 

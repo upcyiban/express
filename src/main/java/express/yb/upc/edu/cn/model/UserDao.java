@@ -6,8 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * Created by lenovo on 2016/5/31.
  */
-public interface UserDao extends CrudRepository<User,Integer>{
-
+public interface UserDao extends CrudRepository<User, Integer> {
 
 
 }

@@ -22,27 +22,22 @@ public class SubmitController {
     private OrderDao orderDao;
 
 
-
-
     @RequestMapping("/informationsubmit")
-    public String showSubmit()
-    {
+    public String showSubmit() {
         return "informationsubmit";
     }
-     @RequestMapping (value = "/submit", method = RequestMethod.POST)
-  public String submitDate(String username,String number,String company,String mobilenumber,String details){
+
+    @RequestMapping(value = "/submit", method = RequestMethod.POST)
+    public String submitDate(String username, String number, String company, String mobilenumber, String details) {
 
 
-         String creattime=new Date().toString();
+        String creattime = new Date().toString();
 
-         String yibanid="1";
-        Order order=new Order(creattime,username, mobilenumber,details, company, number,yibanid);
+        String yibanid = "1";
+        Order order = new Order(creattime, username, mobilenumber, details, company, number, yibanid);
         orderDao.save(order);
         return "submitsuccess";
     }
-
-
-
 
 
 }

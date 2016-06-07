@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by lenovo on 2016/5/31.
  */
 @Entity
-@Table (name = "express_user")
+@Table(name = "express_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,9 @@ public class User {
         this.name = name;
         this.address = address;
     }
-    public User(){}
+
+    public User() {
+    }
 
     public int getId() {
         return Id;

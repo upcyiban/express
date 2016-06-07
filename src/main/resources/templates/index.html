@@ -17,6 +17,11 @@
         <span th:text="${Order.mobilenumber}"></span>
         <span th:text="${Order.username}"></span>
         <span th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}"></span>
+
+        <span th:text="${Order.couriervalue}"></span>
+        <span><a th:text="${Order.uservalue}" th:href="@{/changeuservalue(id=${Order.id})}"></a></span>
+        <span th:text="${Order.ordervalue}"></span>
+
     </li>
 </ul>
 </body>

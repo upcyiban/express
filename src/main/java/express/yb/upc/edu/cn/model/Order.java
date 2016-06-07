@@ -5,12 +5,13 @@ import java.util.Date;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.Collection;
+
 /**
  * Created by wh980 on 2016/5/30.
  */
 
 @Entity
-@Table (name = "express_order")
+@Table(name = "express_order")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,11 +26,13 @@ public class Order {
     private String username;
 
     private String creattime;
-    private String uesrvalue = "未确认";//用户确认订单
-    private String couriervalue ="未确认";//接单员最终确认
-    private String ordervalue ="未确认";//确认接单
+    private String uservalue = "未确认";//用户确认订单
+    private String couriervalue = "未确认";//接单员最终确认
+    private String ordervalue = "未确认";//确认接单
 
-    public Order() {}
+    public Order() {
+    }
+
     public Order(String creattime, String username, String mobilenumber, String details, String company, String number, String yibanid) {
         this.creattime = creattime;
         this.username = username;
@@ -39,8 +42,6 @@ public class Order {
         this.number = number;
         this.yibanid = yibanid;
     }
-
-
 
 
     public int getId() {
@@ -75,8 +76,8 @@ public class Order {
         return creattime;
     }
 
-    public String getUesrvalue() {
-        return uesrvalue;
+    public String getUservalue() {
+        return uservalue;
     }
 
     public String getCouriervalue() {
@@ -119,8 +120,8 @@ public class Order {
         this.creattime = creattime;
     }
 
-    public void setUesrvalue(String uesrvalue) {
-        this.uesrvalue = uesrvalue;
+    public void setUservalue(String uservalue) {
+        this.uservalue = uservalue;
     }
 
     public void setCouriervalue(String couriervalue) {
