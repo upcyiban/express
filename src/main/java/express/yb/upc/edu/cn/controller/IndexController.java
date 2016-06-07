@@ -2,8 +2,7 @@ package express.yb.upc.edu.cn.controller;
 
 import express.yb.upc.edu.cn.model.Order;
 import express.yb.upc.edu.cn.model.OrderDao;
-import express.yb.upc.edu.cn.model.OrderStatus;
-import express.yb.upc.edu.cn.model.OrderStatusDao;
+
 import express.yb.upc.edu.cn.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +22,7 @@ public class IndexController {
     @Autowired
     private OrderDao orderDao;
 
-    @Autowired
-    private OrderStatusDao orderStatusDao;
+
 
     @Autowired
     private LoginService loginService;
@@ -56,10 +54,10 @@ public class IndexController {
 
         yibanid="1";
         Iterable<Order> lists = orderDao.findByYibanid(yibanid);
-       Iterable<OrderStatus> orderlist = orderStatusDao.findByOrderid(orderid);
+
 
         model.addAttribute("lists", lists);
-        model.addAttribute("orderlist", orderlist);
+
         return "index";
     }
 

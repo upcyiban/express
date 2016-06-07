@@ -19,83 +19,121 @@ public class Order {
     private String yibanid;
     private String number;
     private String company;
+
     private String details;
     private String mobilenumber;
     private String username;
-    private String creattime;
 
-    public Order(String yibanid, String number, String company, String details, String mobilenumber, String username, String creattime) {
-        this.yibanid = yibanid;
-        this.number = number;
-        this.company = company;
-        this.details = details;
-        this.mobilenumber = mobilenumber;
-        this.username = username;
+    private String creattime;
+    private boolean uesrvalue = false;//用户确认订单
+    private boolean couriervalue = false;//接单员最终确认
+    private boolean ordervalue = false;//确认接单
+
+    public Order() {}
+    public Order(String creattime, String username, String mobilenumber, String details, String company, String number, String yibanid) {
         this.creattime = creattime;
+        this.username = username;
+        this.mobilenumber = mobilenumber;
+        this.details = details;
+        this.company = company;
+        this.number = number;
+        this.yibanid = yibanid;
     }
-    public Order(){}
+
+    public Order(boolean ordervalue, boolean couriervalue, boolean uesrvalue) {
+        this.ordervalue = ordervalue;
+        this.couriervalue = couriervalue;
+        this.uesrvalue = uesrvalue;
+    }
+
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getYibanid() {
         return yibanid;
     }
 
-    public void setYibanid(String yibanid) {
-        this.yibanid = yibanid;
-    }
-
     public String getNumber() {
         return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
     public String getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
     public String getDetails() {
         return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
     }
 
     public String getMobilenumber() {
         return mobilenumber;
     }
 
-    public void setMobilenumber(String mobilenumber) {
-        this.mobilenumber = mobilenumber;
-    }
-
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getCreattime() {
         return creattime;
     }
 
+    public boolean isUesrvalue() {
+        return uesrvalue;
+    }
+
+    public boolean isCouriervalue() {
+        return couriervalue;
+    }
+
+    public boolean isOrdervalue() {
+        return ordervalue;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setYibanid(String yibanid) {
+        this.yibanid = yibanid;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public void setMobilenumber(String mobilenumber) {
+        this.mobilenumber = mobilenumber;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public void setCreattime(String creattime) {
         this.creattime = creattime;
     }
+
+    public void setUesrvalue(boolean uesrvalue) {
+        this.uesrvalue = uesrvalue;
+    }
+
+    public void setCouriervalue(boolean couriervalue) {
+        this.couriervalue = couriervalue;
+    }
+
+    public void setOrdervalue(boolean ordervalue) {
+        this.ordervalue = ordervalue;
+    }
 }
+
+
