@@ -48,9 +48,6 @@ public class IndexController {
         }
         String userid = httpSession.getAttribute("userid").toString();
         String yibanid = userid;
-        yibanid="1";
-
-
         Iterable<Order> lists = orderDao.findByYibanid(yibanid);
 
 

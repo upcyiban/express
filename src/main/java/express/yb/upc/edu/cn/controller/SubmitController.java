@@ -33,7 +33,7 @@ public class SubmitController {
     public String submitDate(String username, String number, String company, String mobilenumber, String details) {
 
 
-        String yibanid = "1";
+        String yibanid = httpSession.getAttribute("userid").toString();
 
         String creattime = new Date().toString();
 
