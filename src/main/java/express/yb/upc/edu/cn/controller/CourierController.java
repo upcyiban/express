@@ -34,7 +34,7 @@ public class CourierController {
         if (session.getAttribute("user") == null) {
             return "courierlogin";
         } else {
-            return "redirect:officialadmin";
+            return "redirect:courierlist";
         }
     }
 
@@ -49,9 +49,9 @@ public class CourierController {
     public String loginResult(String username, String password) {
         if ((Objects.equals(username, DevConfig.adminUsername)) && (Objects.equals(password, DevConfig.adminPassword))) {
             session.setAttribute("user", "admin");
-            return "redirect:officialadmin";
+            return "redirect:courierlist";
         } else {
-            return "login";//web
+            return "courierlogin";//web
         }
     }
 
