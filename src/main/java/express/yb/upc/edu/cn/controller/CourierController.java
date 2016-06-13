@@ -1,5 +1,6 @@
 package express.yb.upc.edu.cn.controller;
 
+import express.yb.upc.edu.cn.confing.DevConfig;
 import express.yb.upc.edu.cn.model.Order;
 import express.yb.upc.edu.cn.model.OrderDao;
 
@@ -7,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 /**
@@ -17,15 +20,52 @@ import java.util.Objects;
 public class CourierController {
     @Autowired
     private OrderDao orderDao;
+    @Autowired
+    private HttpSession session;
 
+
+    /**
+     * 管理员登录界面
+     *
+     * @return
+     */
+    @RequestMapping("/courierlogin")
+    public String loginAdmin() {
+        if (session.getAttribute("user") == null) {
+            return "courierlogin";
+        } else {
+            return "redirect:officialadmin";
+        }
+    }
+
+    /**
+     * 验证管理员密码错误自动返回登陆界面，密码正确返回管理员界面
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    @RequestMapping(value = "/courierlogin", method = RequestMethod.POST)
+    public String loginResult(String username, String password) {
+        if ((Objects.equals(username, DevConfig.adminUsername)) && (Objects.equals(password, DevConfig.adminPassword))) {
+            session.setAttribute("user", "admin");
+            return "redirect:officialadmin";
+        } else {
+            return "login";//web
+        }
+    }
 
     //快递员显示页面
     @RequestMapping("/courierlist")
     public String courierList(Model model) {
-        Iterable<Order> orders = orderDao.findAll();
+        if (session.getAttribute("user") == null) {
+            return "courierlogin";//web
+        } else {
+            Iterable<Order> orders = orderDao.findAll();
 
-        model.addAttribute("orders", orders);
-        return "courierlist";
+            model.addAttribute("orders", orders);
+            return "courierlist";
+        }
     }
 
     //快递员确认订单
