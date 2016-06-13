@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8"/>
 
@@ -7,6 +8,12 @@
 
 </head>
 <body>
+<ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="#">Home</a></li>
+    <li role="presentation"><a href="result.html">result</a></li>
+    <li role="presentation"><a href="informationSubmit.html">information</a></li>
+</ul>
+
 <h3>订单信息</h3>
 <ul th:each="Order:${lists}">
     <li>
