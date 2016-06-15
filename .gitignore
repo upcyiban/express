@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 application-production.yml
-*iml
+*.iml
 target/
 
