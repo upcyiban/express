@@ -27,7 +27,7 @@ public class GetRealMessage {
         String url = "https://openapi.yiban.cn/pay/yb_wx" + pay;
         String charset = "UTF-8";
 
-        String query = String.format("access_token=%s",
+        String query = String.format("access_toNOMken=%s",
                 URLEncoder.encode(access_token, charset));
         String query1 = String.format("pay=%s",
                 URLEncoder.encode(pay, charset));

@@ -21,6 +21,7 @@
 </ul>
 
 <h3>订单信息</h3>
+<table class="table">
 <ul th:each="Order:${lists}">
     <li>
         <span th:text="${Order.yibanid}"></span>
@@ -37,5 +38,7 @@
 
     </li>
 </ul>
+</table>
+
 </body>
 </html>
