@@ -17,7 +17,7 @@ spring:
   thymeleaf:
     mode: LEGACYHTML5
 server:
-  port: 8088
+  port: 8086
 
 
 
