@@ -23,14 +23,14 @@ public class GetRealMessage {
     @Autowired
     private HttpSession httpSession;
 
-    public String getMessage(String access_token, String pay) throws IOException {
-        String url = "https://openapi.yiban.cn/pay/yb_wx" + pay;
+    public String getMessage(String access_token, String yb_wx) throws IOException {
+        String url = "https://openapi.yiban.cn/pay/yb_wx" + yb_wx;
         String charset = "UTF-8";
 
         String query = String.format("access_toNOMken=%s",
                 URLEncoder.encode(access_token, charset));
-        String query1 = String.format("pay=%s",
-                URLEncoder.encode(pay, charset));
+        String query1 = String.format("yb_wx=%s",
+                URLEncoder.encode(yb_wx, charset));
         URLConnection connection = new URL(url + "?" + query + '&' + query1).openConnection();
         InputStream response = connection.getInputStream();
         StringBuilder sb = new StringBuilder();
