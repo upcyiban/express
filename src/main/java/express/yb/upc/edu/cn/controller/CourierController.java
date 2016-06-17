@@ -4,6 +4,7 @@ import express.yb.upc.edu.cn.confing.DevConfig;
 import express.yb.upc.edu.cn.model.Order;
 import express.yb.upc.edu.cn.model.OrderDao;
 
+import express.yb.upc.edu.cn.service.GetRealMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -85,14 +87,17 @@ public class CourierController {
 
     //快递员确认订单完成
     @RequestMapping("/changeordervalue")
-    public String changeorderValue(int id) {
+    public String changeorderValue(int id) throws IOException {
         Order order = orderDao.findOne(id);
+        GetRealMessage realMessage = new GetRealMessage();
         if (Objects.equals(order.getOrdervalue(), "未确认") && Objects.equals(order.getUservalue(), "已确认") && Objects.equals(order.getCouriervalue(), "已确认")) {
             order.setOrdervalue("已确认");
+            realMessage.getMessage("access_token","10");
         } else {
             order.setOrdervalue("未确认");
         }
         orderDao.save(order);
+
         return "redirect:courierlist";
 
     }
