@@ -5,6 +5,7 @@ import express.yb.upc.edu.cn.model.Order;
 import express.yb.upc.edu.cn.model.OrderDao;
 
 import express.yb.upc.edu.cn.service.GetRealMessage;
+import express.yb.upc.edu.cn.util.SessionUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,8 +24,9 @@ public class CourierController {
     @Autowired
     private OrderDao orderDao;
     @Autowired
-    private HttpSession session;
-
+    private HttpSession httpSession;
+    @Autowired
+    private GetRealMessage getRealMessage;
 
     /**
      * 管理员登录界面
@@ -33,7 +35,7 @@ public class CourierController {
      */
     @RequestMapping("/courierlogin")
     public String loginAdmin() {
-        if (session.getAttribute("user") == null) {
+        if (httpSession.getAttribute("user") == null) {
             return "courierlogin";
         } else {
             return "redirect:courierlist";
@@ -50,7 +52,7 @@ public class CourierController {
     @RequestMapping(value = "/courierlogin", method = RequestMethod.POST)
     public String loginResult(String username, String password) {
         if ((Objects.equals(username, DevConfig.adminUsername)) && (Objects.equals(password, DevConfig.adminPassword))) {
-            session.setAttribute("user", "admin");
+            httpSession.setAttribute("user", "admin");
             return "redirect:courierlist";
         } else {
             return "courierlogin";//web
@@ -60,7 +62,7 @@ public class CourierController {
     //快递员显示页面
     @RequestMapping("/courierlist")
     public String courierList(Model model) {
-        if (session.getAttribute("user") == null) {
+        if (httpSession.getAttribute("user") == null) {
             return "courierlogin";//web
         } else {
             Iterable<Order> orders = orderDao.findAll();
@@ -90,15 +92,17 @@ public class CourierController {
     public String changeorderValue(int id) throws IOException {
         Order order = orderDao.findOne(id);
         GetRealMessage realMessage = new GetRealMessage();
+        String access_token = (String) httpSession.getAttribute("access_token");
         if (Objects.equals(order.getOrdervalue(), "未确认") && Objects.equals(order.getUservalue(), "已确认") && Objects.equals(order.getCouriervalue(), "已确认")) {
             order.setOrdervalue("已确认");
-            realMessage.getMessage("access_token","10");
+
         } else {
             order.setOrdervalue("未确认");
         }
         orderDao.save(order);
-
-        return "redirect:courierlist";
+        if (Objects.equals(order.getOrdervalue(),"已确认") && Objects.equals(order.getUservalue(),"已确认") && Objects.equals(order.getCouriervalue(),"已确认"))
+        {getRealMessage.getMessage(access_token,"1");}
+            return "redirect:courierlist";
 
     }
 
