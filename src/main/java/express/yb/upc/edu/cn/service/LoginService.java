@@ -21,11 +21,11 @@ public class LoginService {
     private HttpSession httpSession;
 
     @Autowired
-    private GetRealMessage getRealMessage;
+    private GetPay getPay;
 
     public boolean procssAuthReal() throws IOException{
         String access_token = (String) httpSession.getAttribute("access_token");
-        String message = getRealMessage.getMessage(access_token,"yb_wx");
+        String message = getPay.getMessage(access_token,"yb_wx");
         return  saveRealSession(message);
     }
 
@@ -39,8 +39,7 @@ public class LoginService {
         Gson gson = new Gson();
         try {
             VeriyPayInfo veriyPayInfo = gson.fromJson(message,VeriyPayInfo.class);
-            if(veriyPayInfo.info.equals("success")){
-                httpSession.setAttribute("yb_wx",veriyPayInfo.info.yv_wx);
+            if(veriyPayInfo.payinfo){
                 return true;
             }else {
                 return false;

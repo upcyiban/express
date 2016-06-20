@@ -4,8 +4,7 @@ import express.yb.upc.edu.cn.confing.DevConfig;
 import express.yb.upc.edu.cn.model.Order;
 import express.yb.upc.edu.cn.model.OrderDao;
 
-import express.yb.upc.edu.cn.service.GetRealMessage;
-import express.yb.upc.edu.cn.util.SessionUser;
+import express.yb.upc.edu.cn.service.GetPay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +25,7 @@ public class CourierController {
     @Autowired
     private HttpSession httpSession;
     @Autowired
-    private GetRealMessage getRealMessage;
+    private GetPay getPay;
 
     /**
      * 管理员登录界面
@@ -91,18 +90,23 @@ public class CourierController {
     @RequestMapping("/changeordervalue")
     public String changeorderValue(int id) throws IOException {
         Order order = orderDao.findOne(id);
-        GetRealMessage realMessage = new GetRealMessage();
-        String access_token = (String) httpSession.getAttribute("access_token");
+
+        GetPay realMessage = new GetPay();
         if (Objects.equals(order.getOrdervalue(), "未确认") && Objects.equals(order.getUservalue(), "已确认") && Objects.equals(order.getCouriervalue(), "已确认")) {
             order.setOrdervalue("已确认");
 
         } else {
             order.setOrdervalue("未确认");
         }
-        orderDao.save(order);
+        String access_token = (String) httpSession.getAttribute("access_token");
         if (Objects.equals(order.getOrdervalue(),"已确认") && Objects.equals(order.getUservalue(),"已确认") && Objects.equals(order.getCouriervalue(),"已确认"))
-        {getRealMessage.getMessage(access_token,"1");}
-            return "redirect:courierlist";
+        {
+            getPay.getMessage(access_token,"1");
+           // if(){}
+        }
+        orderDao.save(order);
+
+        return "redirect:courierlist";
 
     }
 
