@@ -91,7 +91,7 @@ public class CourierController {
     public String changeorderValue(int id) throws IOException {
         Order order = orderDao.findOne(id);
 
-        GetPay realMessage = new GetPay();
+        //GetPay realMessage = new GetPay();
         if (Objects.equals(order.getOrdervalue(), "未确认") && Objects.equals(order.getUservalue(), "已确认") && Objects.equals(order.getCouriervalue(), "已确认")) {
             order.setOrdervalue("已确认");
 
@@ -102,7 +102,7 @@ public class CourierController {
         if (Objects.equals(order.getOrdervalue(),"已确认") && Objects.equals(order.getUservalue(),"已确认") && Objects.equals(order.getCouriervalue(),"已确认"))
         {
             getPay.getMessage(access_token,"1");
-           // if(){}
+
         }
         orderDao.save(order);
 
