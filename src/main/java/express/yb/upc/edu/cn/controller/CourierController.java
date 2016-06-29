@@ -1,5 +1,6 @@
 package express.yb.upc.edu.cn.controller;
 
+import express.yb.upc.edu.cn.GsonTemplate.VeriyPayInfo;
 import express.yb.upc.edu.cn.confing.DevConfig;
 import express.yb.upc.edu.cn.model.Order;
 import express.yb.upc.edu.cn.model.OrderDao;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -52,7 +54,7 @@ public class CourierController {
     public String loginResult(String username, String password) {
         if ((Objects.equals(username, DevConfig.adminUsername)) && (Objects.equals(password, DevConfig.adminPassword))) {
             httpSession.setAttribute("user", "admin");
-            return "redirect:courierlist";
+            return "courierlist";
         } else {
             return "courierlogin";//web
         }
@@ -81,7 +83,7 @@ public class CourierController {
             order.setCouriervalue("未确认");
         }
         orderDao.save(order);
-        return "redirect:courierlist";
+        return "courierlist";
 
     }
 
@@ -98,11 +100,12 @@ public class CourierController {
         } else {
             order.setOrdervalue("未确认");
         }
+
         String access_token = (String) httpSession.getAttribute("access_token");
         if (Objects.equals(order.getOrdervalue(),"已确认") && Objects.equals(order.getUservalue(),"已确认") && Objects.equals(order.getCouriervalue(),"已确认"))
         {
             getPay.getMessage(access_token,"1");
-
+            System.out.toString().equals("123");
         }
         orderDao.save(order);
 

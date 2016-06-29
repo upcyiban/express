@@ -1,6 +1,7 @@
 package express.yb.upc.edu.cn.service;
 
 import com.google.gson.Gson;
+import express.yb.upc.edu.cn.GsonTemplate.VeriyPayInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.sql.Timestamp;
-import java.util.Collection;
 
 /**
  * Created by 陈子枫 on 2016/6/14.
@@ -22,6 +21,8 @@ import java.util.Collection;
 public class GetPay {
     @Autowired
     private HttpSession httpSession;
+
+
 
     public String getMessage(String access_token, String yb_wx) throws IOException {
         String url = "https://openapi.yiban.cn/pay/yb_wx" + yb_wx;
@@ -46,4 +47,10 @@ public class GetPay {
 
 
     }
+
+//  public Class<VeriyPayInfo> getpay(String access_token){
+//      Gson gson = new Gson();
+//      VeriyPayInfo veriyPayInfo = gson.fromJson(access_token,VeriyPayInfo.class);
+//        return VeriyPayInfo.class;
+//        }
 }
