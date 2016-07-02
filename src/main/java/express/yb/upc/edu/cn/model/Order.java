@@ -30,10 +30,11 @@ public class Order {
     private String couriervalue = "未确认";//接单员最终确认
     private String ordervalue = "未确认";//确认接单
 
+    private String address;
     public Order() {
     }
 
-    public Order(String creattime, String username, String mobilenumber, String details, String company, String number, String yibanid) {
+    public Order(String creattime, String username, String mobilenumber, String details, String company, String number, String yibanid,String address) {
         this.creattime = creattime;
         this.username = username;
         this.mobilenumber = mobilenumber;
@@ -41,6 +42,7 @@ public class Order {
         this.company = company;
         this.number = number;
         this.yibanid = yibanid;
+        this.address= address;
     }
 
 

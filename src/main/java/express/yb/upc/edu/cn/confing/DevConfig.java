@@ -8,6 +8,6 @@ public class DevConfig {
     public static String redirect_uri = "http://f.yiban.cn/iapp51217";
     public static String AppSecret = "cd1d99b207c0050317798f8393e20968";
 
-    public static String adminUsername = "admin";
+    public static String adminUsername = "admin@yiban.com";
     public static String adminPassword = "admin";
 }
