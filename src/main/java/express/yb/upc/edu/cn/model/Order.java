@@ -29,11 +29,13 @@ public class Order {
     private String uservalue = "未确认";//用户确认订单
     private String couriervalue = "未确认";//接单员最终确认
     private String ordervalue = "未确认";//确认接单
+    private boolean usersure=false;
+    private boolean couriersure=false;
 
     public Order() {
     }
 
-    public Order(String creattime, String username, String mobilenumber, String details, String company, String number, String yibanid) {
+    public Order(String creattime, String username, String mobilenumber, String details, String company, String number, String yibanid,boolean usersure,boolean couriersure) {
         this.creattime = creattime;
         this.username = username;
         this.mobilenumber = mobilenumber;
@@ -41,6 +43,8 @@ public class Order {
         this.company = company;
         this.number = number;
         this.yibanid = yibanid;
+        this.usersure = usersure;
+        this.couriersure = couriersure;
     }
 
 
@@ -131,6 +135,23 @@ public class Order {
     public void setOrdervalue(String ordervalue) {
         this.ordervalue = ordervalue;
     }
+
+    public boolean isUsersure() {
+        return usersure;
+    }
+
+    public void setUsersure(boolean usersure) {
+        this.usersure = usersure;
+    }
+
+    public boolean isCouriersure() {
+        return couriersure;
+    }
+
+    public void setCouriersure(boolean couriersure) {
+        this.couriersure = couriersure;
+    }
 }
+
 
 
