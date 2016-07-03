@@ -1,4 +1,44 @@
-<!doctype html><html lang="en" xmlns:th="http://www.w3.org/1/xhtml" xmlns:th="http://www.thymeleaf.org"><head><meta charset="utf-8"><meta name="description" content=""><meta name="viewport" content="width=device-width,initial-scale=1"><title>易快递</title><link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- Place favicon.ico in the root directory --><link rel="stylesheet" href="styles/vendor.css"><link rel="stylesheet" href="styles/main.css"><script src="scripts/vendor/modernizr.js"></script><h1 align="center">易快递</h1></head><body><!--[if lt IE 10]>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>易快递</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="styles/vendor.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/vendor/modernizr.js"></script>
+    <h1 align="center">易快递</h1></head>
+<body><!--[if lt IE 10]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> to improve your experience.</p>
-<![endif]--><div class="container"><div><table class="tab" align="center" th:each="Order:${lists}"><tbody><tr><th th:text="${Order.username}">王浩竣</th><th th:text="${Order.mobilenumber}">17806276718</th><th th:text="${Order.address}">13号楼611宿舍</th><th th:text="${Order.company}">顺丰快递</th><th th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}">2016/1/4 19:30</th><th th:text="${Order.ordervalue}"></th><th th:text="${Order.detalis}"></th><th><button class="btn btn-block"><a th:href="@{/changecouriervalue(id=${Order.id})}">确认接单</a></button></th></tr></tbody></table><br></div></div><script src="scripts/vendor.js"></script><script src="scripts/plugins.js"></script><script src="scripts/main.js"></script></body><div class="container"><div class="footer"><h3>♥ from the Yeoman team</h3></div></div></html>
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="container">
+    <div>
+        <table class="tab" align="center" th:each="Order:${lists}">
+            <tbody>
+            <tr>
+                <th th:text="${Order.username}">王浩竣</th>
+                <th th:text="${Order.mobilenumber}">17806276718</th>
+                <th th:text="${Order.address}">13号楼611宿舍</th>
+                <th th:text="${Order.company}">顺丰快递</th>
+                <th th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}">2016/1/4 19:30</th>
+                <th th:text="${Order.ordervalue}"></th>
+                <th th:text="${Order.detalis}"></th>
+                <th>
+                    <button class="btn btn-block"><a th:href="@{/changecouriervalue(id=${Order.id})}">确认接单</a></button>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+        <br></div>
+</div>
+<script src="scripts/vendor.js"></script>
+<script src="scripts/plugins.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+<div class="container">
+    <div class="footer"><h3>♥ from the Yeoman team</h3></div>
+</div>
+</html>

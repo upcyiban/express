@@ -69,7 +69,9 @@ public class CourierController {
             Iterable<Order> orders = orderDao.findAll();
 
             model.addAttribute("orders", orders);
+            System.out.println(orders);
             return "courierlist";
+
         }
     }
 
@@ -94,8 +96,6 @@ public class CourierController {
         //GetPay realMessage = new GetPay();
         if (Objects.equals(order.getOrdervalue(), "未确认")  && Objects.equals(order.getCouriervalue(), "已确认")) {
             order.setOrdervalue("已确认");
-        } else {
-            order.setOrdervalue("未确认");
         }
 
 
