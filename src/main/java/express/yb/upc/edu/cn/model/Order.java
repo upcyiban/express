@@ -45,6 +45,9 @@ public class Order {
         this.address= address;
     }
 
+    public String getAddress() {
+        return address;
+    }
 
     public int getId() {
         return id;

@@ -37,13 +37,13 @@ public class SubmitController {
 
         String creattime = new Date().toString();
 
-        String address =new String();
+        String address =address0+address1;
 
-        address=address1+address0;
+
 
         Order order = new Order(creattime, username, mobilenumber, details, company, number, yibanid,address);
         orderDao.save(order);
-        return "submitsuccess";
+        return "success";
     }
 
 

@@ -79,8 +79,6 @@ public class CourierController {
         Order order = orderDao.findOne(id);
         if (Objects.equals(order.getCouriervalue(), "未确认")) {
             order.setCouriervalue("已确认");
-        } else {
-            order.setCouriervalue("未确认");
         }
         orderDao.save(order);
         return "courierlist";
@@ -94,11 +92,9 @@ public class CourierController {
         Order order = orderDao.findOne(id);
 
         //GetPay realMessage = new GetPay();
-        if (Objects.equals(order.getOrdervalue(), "未确认") && Objects.equals(order.getUservalue(), "已确认") && Objects.equals(order.getCouriervalue(), "已确认")) {
+        if (Objects.equals(order.getOrdervalue(), "未确认")  && Objects.equals(order.getCouriervalue(), "已确认")) {
             order.setOrdervalue("已确认");
 
-        } else {
-            order.setOrdervalue("未确认");
         }
 
         String access_token = (String) httpSession.getAttribute("access_token");
