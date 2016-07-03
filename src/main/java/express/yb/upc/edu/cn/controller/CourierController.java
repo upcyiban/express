@@ -79,35 +79,31 @@ public class CourierController {
         Order order = orderDao.findOne(id);
         if (Objects.equals(order.getCouriervalue(), "未确认")) {
             order.setCouriervalue("已确认");
-        } else {
-            order.setCouriervalue("未确认");
         }
         orderDao.save(order);
         return "courierlist";
 
     }
 
-    String access_token = (String) httpSession.getAttribute("access_token");
+
     //快递员确认订单完成
     @RequestMapping("/changeordervalue")
     public String changeorderValue(int id) throws IOException {
         Order order = orderDao.findOne(id);
 
         //GetPay realMessage = new GetPay();
-        if (Objects.equals(order.getOrdervalue(), "未确认") && Objects.equals(order.getUservalue(), "已确认") && Objects.equals(order.getCouriervalue(), "已确认")) {
+        if (Objects.equals(order.getOrdervalue(), "未确认")  && Objects.equals(order.getCouriervalue(), "已确认")) {
             order.setOrdervalue("已确认");
-            order.setCouriersure(true);
-            getPay.getMessage(access_token,"1");
         } else {
             order.setOrdervalue("未确认");
         }
 
 
-
-//        if (Objects.equals(order.getOrdervalue(),"已确认") && Objects.equals(order.getUservalue(),"已确认") && Objects.equals(order.getCouriervalue(),"已确认"))
-//        {
-//            getPay.getMessage(access_token,"1");
-//        }
+        String access_token = (String) httpSession.getAttribute("access_token");
+        if (Objects.equals(order.getOrdervalue(),"已确认") && Objects.equals(order.getUservalue(),"已确认") && Objects.equals(order.getCouriervalue(),"已确认"))
+        {
+            getPay.getMessage(access_token,"1");
+        }
         orderDao.save(order);
 
         return "redirect:courierlist";
