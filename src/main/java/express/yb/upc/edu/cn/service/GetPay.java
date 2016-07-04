@@ -25,12 +25,12 @@ public class GetPay {
 
 
     public String getMessage(String access_token, String yb_wx) throws IOException {
-        String url = "https://openapi.yiban.cn/pay/yb_wx" + yb_wx;
+        String url = "https://openapi.yiban.cn/pay/yb_wx";
         String charset = "UTF-8";// Or in Java 7 and later, use the constant: java.nio.charset.StandardCharsets.UTF_8.name()
 
         String query = String.format("access_token=%s",
                 URLEncoder.encode(access_token, charset));
-        String query1 = String.format("yb_wx=%s",
+        String query1 = String.format("pay=%s",
                 URLEncoder.encode(yb_wx, charset));
         URLConnection connection = new URL(url + "?" + query + '&' + query1).openConnection();
         InputStream response = connection.getInputStream();

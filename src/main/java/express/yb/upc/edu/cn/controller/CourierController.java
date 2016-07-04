@@ -29,6 +29,9 @@ public class CourierController {
     @Autowired
     private GetPay getPay;
 
+    String access_token = null;
+    String yb_wx ="1";
+
     /**
      * 管理员登录界面
      *
@@ -37,26 +40,24 @@ public class CourierController {
     @RequestMapping("/courierlogin")
     public String loginAdmin() {
         if (httpSession.getAttribute("user") == null) {
+            System.out.println("1");
             return "courierlogin";
         } else {
             return "redirect:courierlist";
         }
     }
 
-    /**
-     * 验证管理员密码错误自动返回登陆界面，密码正确返回管理员界面
-     *
-     * @param username
-     * @param password
-     * @return
-     */
     @RequestMapping(value = "/courierlogin", method = RequestMethod.POST)
-    public String loginResult(String username, String password) {
+    public String loginResult(String username, String password) throws IOException {
         if ((Objects.equals(username, DevConfig.adminUsername)) && (Objects.equals(password, DevConfig.adminPassword))) {
-            httpSession.setAttribute("user", "admin");
-            return "courierlist";
+            access_token = (String) httpSession.getAttribute("access_token");
+            httpSession.setAttribute("user","admin");
+            System.out.println((String)httpSession.getAttribute("user"));
+            System.out.println("access_token");
+            getPay.getMessage(access_token,yb_wx);
+            return "redirect:courierlist";
         } else {
-            return "courierlogin";//web
+            return "redirect:courierlogin";//web
         }
     }
 
@@ -64,10 +65,10 @@ public class CourierController {
     @RequestMapping("/courierlist")
     public String courierList(Model model) {
         if (httpSession.getAttribute("user") == null) {
-            return "courierlogin";//web
+            System.out.println(12);
+            return "redirect:courierlogin";//web
         } else {
             Iterable<Order> orders = orderDao.findAll();
-
             model.addAttribute("orders", orders);
             return "courierlist";
         }
@@ -99,10 +100,10 @@ public class CourierController {
         }
 
 
-        String access_token = (String) httpSession.getAttribute("access_token");
+       // String access_token = (String) httpSession.getAttribute("access_token");
         if (Objects.equals(order.getOrdervalue(),"已确认") && Objects.equals(order.getUservalue(),"已确认") && Objects.equals(order.getCouriervalue(),"已确认"))
         {
-            getPay.getMessage(access_token,"1");
+           // getPay.getMessage(access_token,"1");
         }
         orderDao.save(order);
 
