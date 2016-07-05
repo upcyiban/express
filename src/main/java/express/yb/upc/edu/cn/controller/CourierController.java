@@ -51,7 +51,8 @@ public class CourierController {
     public String loginResult(String username, String password) throws IOException {
         if ((Objects.equals(username, DevConfig.adminUsername)) && (Objects.equals(password, DevConfig.adminPassword))) {
 
-//            System.out.println((String)httpSession.getAttribute("user"));
+            httpSession.setAttribute("user","admin");
+           System.out.println((String)httpSession.getAttribute("user"));
 //            System.out.println("access_token");
 
             return "redirect:courierlist";
@@ -69,9 +70,7 @@ public class CourierController {
         } else {
             Iterable<Order> orders = orderDao.findAll();
             model.addAttribute("orders", orders);
-            System.out.println(orders);
             return "courierlist";
-
         }
     }
 
@@ -96,6 +95,8 @@ public class CourierController {
         //GetPay realMessage = new GetPay();
         if (Objects.equals(order.getOrdervalue(), "未确认")  && Objects.equals(order.getCouriervalue(), "已确认")) {
             order.setOrdervalue("已确认");
+        } else {
+            order.setOrdervalue("未确认");
         }
 
 
@@ -103,8 +104,7 @@ public class CourierController {
         if (Objects.equals(order.getOrdervalue(),"已确认") && Objects.equals(order.getUservalue(),"已确认") && Objects.equals(order.getCouriervalue(),"已确认"))
         {
             access_token = (String) httpSession.getAttribute("access_token");
-            httpSession.setAttribute("user","admin");
-            getPay.getMessage(access_token,"1");
+            getPay.getMessage(access_token,yb_wx);
         }
         orderDao.save(order);
 
