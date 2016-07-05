@@ -16,7 +16,7 @@
 <![endif]-->
 <div class="container">
     <div>
-        <table class="tab" align="center" th:each="Order:${lists}">
+        <table class="tab" align="center" th:each="Order:${orders}">
             <tbody>
             <tr>
                 <th th:text="${Order.username}">王浩竣</th>
@@ -25,7 +25,7 @@
                 <th th:text="${Order.company}">顺丰快递</th>
                 <th th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}">2016/1/4 19:30</th>
                 <th th:text="${Order.ordervalue}"></th>
-                <th th:text="${Order.detalis}"></th>
+                <th th:text="${Order.details}"></th>
                 <th>
                     <button class="btn btn-block"><a th:href="@{/changecouriervalue(id=${Order.id})}">确认接单</a></button>
                 </th>
