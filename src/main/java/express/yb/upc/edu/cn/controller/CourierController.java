@@ -50,11 +50,10 @@ public class CourierController {
     @RequestMapping(value = "/courierlogin", method = RequestMethod.POST)
     public String loginResult(String username, String password) throws IOException {
         if ((Objects.equals(username, DevConfig.adminUsername)) && (Objects.equals(password, DevConfig.adminPassword))) {
-            access_token = (String) httpSession.getAttribute("access_token");
-            httpSession.setAttribute("user","admin");
-            System.out.println((String)httpSession.getAttribute("user"));
-            System.out.println("access_token");
-            getPay.getMessage(access_token,yb_wx);
+
+//            System.out.println((String)httpSession.getAttribute("user"));
+//            System.out.println("access_token");
+
             return "redirect:courierlist";
         } else {
             return "redirect:courierlogin";//web
@@ -103,7 +102,9 @@ public class CourierController {
        // String access_token = (String) httpSession.getAttribute("access_token");
         if (Objects.equals(order.getOrdervalue(),"已确认") && Objects.equals(order.getUservalue(),"已确认") && Objects.equals(order.getCouriervalue(),"已确认"))
         {
-           // getPay.getMessage(access_token,"1");
+            access_token = (String) httpSession.getAttribute("access_token");
+            httpSession.setAttribute("user","admin");
+            getPay.getMessage(access_token,"1");
         }
         orderDao.save(order);
 
