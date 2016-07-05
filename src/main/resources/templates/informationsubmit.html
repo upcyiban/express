@@ -1,4 +1,81 @@
-<!doctype html><html lang="en" xmlns:th="http://www.w3.org/1/xhtml" xmlns:th="http://www.thymeleaf.org"><head><meta charset="utf-8"><meta name="description" content=""><meta name="viewport" content="width=device-width,initial-scale=1"><title>易快递</title><link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- Place favicon.ico in the root directory --><link rel="stylesheet" href="styles/vendor.css"><link rel="stylesheet" href="styles/main.css"><script src="scripts/vendor/modernizr.js"></script><h1 align="center">易快递</h1></head><body><!--[if lt IE 10]>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>石大易快递</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="styles/vendor.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/vendor/modernizr.js"></script>
+    <h1 align="center">易快递</h1></head>
+<body><!--[if lt IE 10]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> to improve your experience.</p>
-<![endif]--><div class="container"><div class="header"><ul class="nav nav-tabs"><li><a href="/">主页</a></li><li class="active"><a href="informationsubmit.html">新建订单</a></li><li><a href="courierlogin.html">管理员登录</a></li></ul></div><br><div><form action="/submit" method="post" class="form-horizontal">收货人姓名：　<input type="text" name="username"><br><br>收货人手机号：<input type="text" name="mobilenumber"><br><br>收货地址：<select type="text" name="address0"><option>研究生1号楼</option><option>研究生2号楼</option><option>研究生3号楼</option><option>留陪楼</option><option>1号楼</option><option>2号楼</option><option>3号楼</option><option>4号楼</option><option>5号楼</option><option>6号楼</option><option>7号楼</option><option>8号楼</option><option>9号楼</option><option>10号楼</option><option>11号楼</option><option>12号楼</option><option>13号楼</option><option>14号楼</option><option>15号楼</option><option>16号楼</option><option>17号楼</option><option>18号楼</option><option>19号楼</option><option>其他</option></select><br><br><input type="text" name="address1" placeholder="宿舍信息（如601宿舍）"><br><br>快递公司：<select type="text" name="company"><option>百世汇通（研二水果）</option><option>百世汇通（万家福）</option><option>中通快递（14号楼）</option><option>中通快递（万家福）</option><option>EMS（14号楼）</option><option>宅急送（北门门口）</option><option>国通快递（万家福）</option><option>京东快递（13号楼）</option><option>天天快递（北门网点）</option><option>韵达快递（13号楼）</option><option>全峰快递（万家福）</option><option>圆通快递（北门网点）</option><option>顺丰快递（17号楼）</option><option>申通快递（北门网点）</option><option>优速快递（北门网点）</option></select><br><br>快递取件编号：<input type="text" name="number"><br><br>备注：<br><textarea type="text" name="details" rows="3" placeholder="快递物品，到件时间等都能提示送货人哦"></textarea><br><br><button class="btn btn-large btn-block btn-primary" type="submit">确定</button></form></div><div class="footer"><h3>♥ from the Yeoman team</h3></div></div><script src="scripts/vendor.js"></script><script src="scripts/plugins.js"></script><script src="scripts/main.js"></script></body></html>
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="container">
+    <div class="header">
+        <ul class="nav nav-tabs">
+            <li><a href="/">主页</a></li>
+            <li class="active"><a href="informationsubmit.html">新建订单</a></li>
+        </ul>
+    </div>
+    <br>
+    <div>
+        <form action="/submit" method="post" class="form-horizontal">收货人姓名：　<input type="text" name="username"><br><br>收货人手机号：<input
+                type="text" name="mobilenumber"><br><br>收货地址：<select type="text" name="address0">
+            <option>研究生1号楼</option>
+            <option>研究生2号楼</option>
+            <option>研究生3号楼</option>
+            <option>留陪楼</option>
+            <option>1号楼</option>
+            <option>2号楼</option>
+            <option>3号楼</option>
+            <option>4号楼</option>
+            <option>5号楼</option>
+            <option>6号楼</option>
+            <option>7号楼</option>
+            <option>8号楼</option>
+            <option>9号楼</option>
+            <option>10号楼</option>
+            <option>11号楼</option>
+            <option>12号楼</option>
+            <option>13号楼</option>
+            <option>14号楼</option>
+            <option>15号楼</option>
+            <option>16号楼</option>
+            <option>17号楼</option>
+            <option>18号楼</option>
+            <option>19号楼</option>
+            <option>其他</option>
+        </select><br><br><input type="text" name="address1" placeholder="宿舍信息（如601宿舍）"><br><br>快递公司：<select type="text"
+                                                                                                            name="company">
+            <option>百世汇通（研二水果）</option>
+            <option>百世汇通（万家福）</option>
+            <option>中通快递（14号楼）</option>
+            <option>中通快递（万家福）</option>
+            <option>EMS（14号楼）</option>
+            <option>宅急送（北门门口）</option>
+            <option>国通快递（万家福）</option>
+            <option>京东快递（13号楼）</option>
+            <option>天天快递（北门网点）</option>
+            <option>韵达快递（13号楼）</option>
+            <option>全峰快递（万家福）</option>
+            <option>圆通快递（北门网点）</option>
+            <option>顺丰快递（17号楼）</option>
+            <option>申通快递（北门网点）</option>
+            <option>优速快递（北门网点）</option>
+        </select><br><br>快递取件编号：<input type="text" name="number"><br><br>备注：<br><textarea type="text" name="details"
+                                                                                          rows="3"
+                                                                                          placeholder="快递物品，到件时间等都能提示送货人哦"></textarea><br><br>
+            <button class="btn btn-large btn-block btn-primary" type="submit">确定</button>
+        </form>
+    </div>
+    <div class="footer"><h3 align="center"><a href="http://yb.upc.edu.cn/blog/"> ♥易班技术部</a></h3></div>
+</div>
+<script src="scripts/vendor.js"></script>
+<script src="scripts/plugins.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>

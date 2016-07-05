@@ -43,7 +43,7 @@ public class SubmitController {
 
         Order order = new Order(creattime, username, mobilenumber, details, company, number, yibanid,address);
         orderDao.save(order);
-        return "success";
+        return "redirect:/";
     }
 
 

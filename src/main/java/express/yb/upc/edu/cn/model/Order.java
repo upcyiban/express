@@ -27,8 +27,8 @@ public class Order {
 
     private String creattime;
     private String uservalue = "未确认";//用户确认订单
-    private String couriervalue = "未确认";//接单员最终确认
-    private String ordervalue = "未确认";//确认接单
+    private String couriervalue = "未接单";//接单员最终确认
+    private String ordervalue = "未完成";//确认接单
     private String address;
     public Order() {
     }

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>易快递</title>
+    <title>石大易快递</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="styles/vendor.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -16,22 +16,25 @@
 <![endif]-->
 <div class="container">
     <div>
-        <table class="tab" align="center" th:each="Order:${orders}">
-            <tbody>
-            <tr>
-                <th th:text="${Order.username}">王浩竣</th>
-                <th th:text="${Order.mobilenumber}">17806276718</th>
-                <th th:text="${Order.address}">13号楼611宿舍</th>
-                <th th:text="${Order.company}">顺丰快递</th>
-                <th th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}">2016/1/4 19:30</th>
-                <th th:text="${Order.ordervalue}"></th>
-                <th th:text="${Order.details}"></th>
-                <th>
-                    <button class="btn btn-block"><a th:href="@{/changecouriervalue(id=${Order.id})}">确认接单</a></button>
-                </th>
-            </tr>
-            </tbody>
-        </table>
+        <dl  align="center" th:each="Order:${orders}">
+
+
+
+                <dd th:text="${Order.username}">王浩竣</dd>
+                <dd th:text="${Order.mobilenumber}">17806276718</dd>
+                <dd th:text="${Order.address}">13号楼611宿舍</dd>
+                <dd th:text="${Order.company}">顺丰快递</dd>
+                <dd th:text="${#dates.format(Order.creattime,'yyyy/MM/dd HH:mm')}">2016/1/4 19:30</dd>
+
+                <dd th:text="${Order.details}"></dd>
+                是否确认接单：<dd th:text="${Order.couriervalue}"></dd>
+                订单是否完成：<dd th:text="${Order.ordervalue}"></dd>
+                <dd>
+                    <button class="btn btn-block" ><a th:href="@{/changecouriervalue(id=${Order.id})}">确认接单</a></button>
+                </dd>
+
+
+        </dl>
         <br></div>
 </div>
 <script src="scripts/vendor.js"></script>
@@ -39,6 +42,6 @@
 <script src="scripts/main.js"></script>
 </body>
 <div class="container">
-    <div class="footer"><h3>♥ from the Yeoman team</h3></div>
+    <h3 align="center"><a href="http://yb.upc.edu.cn/blog/"> ♥易班技术部</a></h3>
 </div>
 </html>

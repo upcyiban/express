@@ -10,4 +10,5 @@ public class DevConfig {
 
     public static String adminUsername = "admin@yiban.com";
     public static String adminPassword = "admin";
+    public static String yb_wx="300";
 }
